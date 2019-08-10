@@ -20,6 +20,10 @@ body, input, button {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+ul {
+  list-style: none;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;

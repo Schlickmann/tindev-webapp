@@ -1,11 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import api from "../../services/api";
 
-// import { Container } from './styles';
+import Developer from "../../components/developer";
+import { Container, LogoMain, List } from "./styles";
 
-export default function main() {
+export default function Main({ match }) {
+  const [developers, setDevelopers] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  async function fetchData() {
+    const { data } = await api.get("/devs");
+
+    setDevelopers(data);
+  }
+
   return (
-    <>
-      <h1>Oi</h1>
-    </>
+    <Container>
+      <LogoMain />
+      <ul>
+        {developers.map(developer => (
+          <Developer key={developer._id} data={developer} />
+        ))}
+      </ul>
+    </Container>
   );
 }
