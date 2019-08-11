@@ -24,7 +24,7 @@ ul {
   list-style: none;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
@@ -34,5 +34,5 @@ ul {
 }
 ::-webkit-scrollbar-thumb {
   background-color: #673AB7;
-}
+} */
 `;

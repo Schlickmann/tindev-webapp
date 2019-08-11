@@ -8,23 +8,25 @@ export default function Main({ match }) {
   const [developers, setDevelopers] = useState([]);
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    async function loadUsers() {
+      const { data } = await api.get("/devs", {
+        headers: { user: match.params.id }
+      });
 
-  async function fetchData() {
-    const { data } = await api.get("/devs");
+      setDevelopers(data);
+    }
 
-    setDevelopers(data);
-  }
+    loadUsers();
+  }, [match.params.id]);
 
   return (
     <Container>
       <LogoMain />
-      <ul>
+      <List>
         {developers.map(developer => (
           <Developer key={developer._id} data={developer} />
         ))}
-      </ul>
+      </List>
     </Container>
   );
 }
