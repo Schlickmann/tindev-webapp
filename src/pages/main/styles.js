@@ -20,3 +20,10 @@ export const List = styled.ul`
   grid-gap: 30px;
   margin-top: 50px;
 `;
+
+export const Empty = styled.div`
+  font-size: 32px;
+  color: #999;
+  font-weight: bold;
+  margin-top: 300px;
+`;

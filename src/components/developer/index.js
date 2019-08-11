@@ -17,19 +17,7 @@ import {
 import Like from "../../assets/images/like.svg";
 import Dislike from "../../assets/images/dislike.svg";
 
-function Developer({ data, match }) {
-  async function handleLikes(id) {
-    await api.post(`devs/${id}/likes`, null, {
-      headers: { user: match.params.id }
-    });
-  }
-
-  async function handleDislikes(id) {
-    await api.post(`devs/${id}/dislikes`, null, {
-      headers: { user: match.params.id }
-    });
-  }
-
+function Developer({ data, handleDislikes, handleLikes, match }) {
   return (
     <>
       <Item>
